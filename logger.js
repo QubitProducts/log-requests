@@ -1,0 +1,26 @@
+const config = require('config')
+const _ = require('lodash')
+const chalk = require('chalk')
+const prettyjson = require('prettyjson')
+const express = require('express')
+const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
+const log = console.log.bind(log)
+
+module.exports = function logger (opts) {
+  opts = _.extend({}, config, opts)
+  const app = express()
+  app.use(cookieParser())
+  app.use(bodyParser.json())
+  app.use(bodyParser.urlencoded({ extended: true }))
+  app.use(bodyParser.raw())
+  app.use(bodyParser.text())
+  app.use((req, res) => {
+    const attributes = ['url', 'body', 'query', 'headers', 'cookies'].filter(attr => opts[attr] || opts.all)
+    const summary = _.pick(req, attributes)
+    log(chalk.bold.inverse('\n\n________________REQUEST SUMMARY________________'))
+    log(prettyjson.render(summary))
+    res.json(summary)
+  })
+  return app.listen(opts.port)
+}

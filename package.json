@@ -1,0 +1,33 @@
+{
+  "name": "log-requests",
+  "version": "1.0.0",
+  "description": "A service that simply echos and logs all requests sent to it",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "log-requests": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qubitdigital/log-requests.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qubitdigital/log-requests/issues"
+  },
+  "homepage": "https://github.com/qubitdigital/log-requests#readme",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "chalk": "^1.1.1",
+    "commander": "^2.9.0",
+    "config": "^1.17.1",
+    "cookie-parser": "^1.4.0",
+    "express": "^4.13.3",
+    "js-yaml": "^3.4.6",
+    "lodash": "^3.10.1",
+    "prettyjson": "^1.1.3"
+  }
+}
