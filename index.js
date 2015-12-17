@@ -39,6 +39,4 @@ program.on('--help', () => {
     `)
 })
 
-if (!_.some(['url', 'body', 'query', 'headers', 'cookies'], attr => program[attr])) program.all = true
-
 logger(program.parse(process.argv))
