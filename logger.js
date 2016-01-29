@@ -14,8 +14,8 @@ module.exports = function logger (options) {
   if (!_.some(attributes, attr => options[attr])) options.all = true
   const picked = attributes.filter(attr => options[attr] || options.all)
   app.use(cookieParser())
-  app.use(bodyParser.json())
-  app.use(bodyParser.urlencoded({ extended: true }))
+  app.use(bodyParser.json({limit: '50mb'}))
+  app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }))
   app.use(bodyParser.raw())
   app.use(bodyParser.text())
   app.use((req, res) => {
