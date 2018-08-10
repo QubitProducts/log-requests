@@ -1,6 +1,6 @@
 {
   "name": "log-requests",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A service that simply echos and logs all requests sent to it",
   "main": "index.js",
   "scripts": {
